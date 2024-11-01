@@ -1,0 +1,80 @@
+{
+    // Place your commonlands-mobile workspace snippets here. Each snippet is defined under a snippet name and has a scope, prefix, body and
+    // description. Add comma separated ids of the languages where the snippet is applicable in the scope field. If scope
+    // is left empty or omitted, the snippet gets applied to all languages. The prefix is what is
+    // used to trigger the snippet and the body will be expanded and inserted. Possible variables are:
+    // $1, $2 for tab stops, $0 for the final cursor position, and ${1:label}, ${2:another} for placeholders.
+    // Placeholders with the same ids are connected.
+    // Example:
+    // "Print to console": {
+    // 	"scope": "javascript,typescript",
+    // 	"prefix": "log",
+    // 	"body": [
+    // 		"console.log('$1');",
+    // 		"$2"
+    // 	],
+    // 	"description": "Log output to console"
+    // }
+    "New Screen": {
+        "prefix": "newscreen",
+        "body": [
+            "import React from 'react';",
+            "import { Box, Text, HStack, ScrollView } from 'native-base';",
+            "import HeaderPage from '../../components/HeaderPage';",
+            "",
+            "const ${1:Index} = () => {",
+            "    return (",
+            "        <Box h={\"100%\"} w={\"100%\"}>",
+            "            <HeaderPage title=\"${1:Index}\" />",
+            "            <ScrollView>",
+            "               <Text>${1:Index}</Text>",
+            "            </ScrollView>",
+            "        </Box>",
+            "    );",
+            "};",
+            "",
+            "export default ${1:Index};",
+        ],
+        "description": "New Screen",
+    },
+    "New Component": {
+        "prefix": "newcomponent",
+        "body": [
+            "import React from 'react';",
+            "import { Box, Text, HStack } from 'native-base';",
+            "",
+            "const ${1:Index} = () => {",
+            "    return (",
+            "        <Box>",
+            "            <Text>${1:Index}</Text>",
+            "        </Box>",
+            "    );",
+            "};",
+            "",
+            "export default ${1:Index};",
+        ],
+        "description": "New Component",
+    },
+    "To rgba": {
+        "prefix": "torgba",
+        "body": ["// rgba of ${1:color} is "],
+        "description": "To rgba",
+    },
+    "request server": {
+        "prefix": "reqserver",
+        "body": [
+            "const [loading, setLoading] = useState(false);",
+            "const ${1:Index} = async () => {",
+            "    setLoading(true);",
+            "    try {",
+            "        let { data } = await ${2:axios};",
+            "    } catch (error) {",
+            "        showErr(error);",
+            "    }",
+            "    setLoading(false);",
+            "};",
+            "",
+        ],
+        "description": "request server",
+    },
+}

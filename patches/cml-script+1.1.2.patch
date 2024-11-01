@@ -1,0 +1,86 @@
+diff --git a/node_modules/cml-script/index.js b/node_modules/cml-script/index.js
+index ee2398a..ec72302 100644
+--- a/node_modules/cml-script/index.js
++++ b/node_modules/cml-script/index.js
+@@ -550,21 +550,24 @@ export const renderPublicPlot = ({
+         lines = [],
+         points = [],
+         allUnion = [];
++
++    const start = new Date().getTime();
++
+     claimchains.forEach((claimchain) => {
+         //get color data default with claimchain size
+         let colors = getColors({
+             numberClaimchain: claimchain.size,
+         });
+-        let unionPolygon;
++        // let unionPolygon;
+ 
+         claimchain.plots.forEach((plot, index) => {
+-            if (claimchain.size >= worthwhileNumber) {
+-                if (!index) {
+-                    unionPolygon = plot.geojson;
+-                } else {
+-                    unionPolygon = Turf.union(unionPolygon, plot.geojson);
+-                }
+-            }
++            // if (claimchain.size >= worthwhileNumber) {
++            //     if (!index) {
++            //         unionPolygon = plot.geojson;
++            //     } else {
++            //         unionPolygon = Turf.union(unionPolygon, plot.geojson);
++            //     }
++            // }
+ 
+             let _plot = deepClone(plot);
+             // get color data by plot status
+@@ -572,7 +575,8 @@ export const renderPublicPlot = ({
+             _plot.properties = {
+                 ...colors,
+                 fillColor,
+-                outlineColor,
++                outlineColor: claimchain.size > worthwhileNumber ? '#fff': outlineColor,
++                lineWidth: claimchain.size > worthwhileNumber ? 2: 1,
+                 claimchainSize: claimchain.size,
+                 centroid: plot.centroid,
+             };
+@@ -588,16 +592,16 @@ export const renderPublicPlot = ({
+                 });
+             }
+         });
+-        if (claimchain.size >= worthwhileNumber) {
+-            allUnion.push({
+-                geojson: unionPolygon,
+-                properties: {
+-                    outlineColor: 'white',
+-                    fillColor: 'transparent',
+-                    lineWidth: 2,
+-                },
+-            });
+-        }
++        // if (claimchain.size >= worthwhileNumber) {
++        //     allUnion.push({
++        //         geojson: unionPolygon,
++        //         properties: {
++        //             outlineColor: 'white',
++        //             fillColor: 'transparent',
++        //             lineWidth: 2,
++        //         },
++        //     });
++        // }
+         claimchain.neighbors?.forEach((ids) => {
+             let first = claimchain.plots.find((i) => i._id === ids[0]);
+             let second = claimchain.plots.find((i) => i._id === ids[1]);
+@@ -611,6 +615,11 @@ export const renderPublicPlot = ({
+             }
+         });
+     });
++
++    const end = new Date().getTime();
++
++    console.log('[cml-script] Execution time: ' + (end - start) + 'ms');
++
+     // render polygon
+     const source = initSource({
+         plots,

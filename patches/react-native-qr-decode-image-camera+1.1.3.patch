@@ -1,0 +1,13 @@
+diff --git a/node_modules/react-native-qr-decode-image-camera/android/build.gradle b/node_modules/react-native-qr-decode-image-camera/android/build.gradle
+index ef823e9..d30c6aa 100644
+--- a/node_modules/react-native-qr-decode-image-camera/android/build.gradle
++++ b/node_modules/react-native-qr-decode-image-camera/android/build.gradle
+@@ -29,7 +29,7 @@ android {
+     buildToolsVersion "31.0.0"
+ 
+     defaultConfig {
+-        minSdkVersion 23
++        minSdkVersion 21
+         targetSdkVersion 31
+         versionCode 1
+         versionName computeVersionName()

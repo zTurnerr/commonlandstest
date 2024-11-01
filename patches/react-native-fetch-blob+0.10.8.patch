@@ -1,0 +1,75 @@
+diff --git a/node_modules/react-native-fetch-blob/android/build.gradle b/node_modules/react-native-fetch-blob/android/build.gradle
+index 919e64a..d59796e 100644
+--- a/node_modules/react-native-fetch-blob/android/build.gradle
++++ b/node_modules/react-native-fetch-blob/android/build.gradle
+@@ -14,11 +14,11 @@ buildscript {
+ }
+ 
+ android {
+-    compileSdkVersion 23
+-    buildToolsVersion "23.0.1"
++    compileSdkVersion 33
++    buildToolsVersion "33.0.0"
+     defaultConfig {
+         minSdkVersion 16
+-        targetSdkVersion 23
++        targetSdkVersion 33
+         versionCode 1
+         versionName "1.0"
+     }
+@@ -33,6 +33,6 @@ android {
+ }
+ 
+ dependencies {
+-    compile 'com.facebook.react:react-native:+'
++    implementation 'com.facebook.react:react-native:+'
+     //{RNFetchBlob_PRE_0.28_DEPDENDENCY}
+ }
+diff --git a/node_modules/react-native-fetch-blob/polyfill/Blob.js b/node_modules/react-native-fetch-blob/polyfill/Blob.js
+index 53662a7..3072036 100644
+--- a/node_modules/react-native-fetch-blob/polyfill/Blob.js
++++ b/node_modules/react-native-fetch-blob/polyfill/Blob.js
+@@ -2,7 +2,7 @@
+ // Use of this source code is governed by a MIT-style license that can be
+ // found in the LICENSE file.
+ 
+-import RNFetchBlob from '../index.js'
++// import RNFetchBlob from '../index.js'
+ import fs from '../fs.js'
+ import getUUID from '../utils/uuid'
+ import Log from '../utils/log.js'
+diff --git a/node_modules/react-native-fetch-blob/polyfill/Fetch.js b/node_modules/react-native-fetch-blob/polyfill/Fetch.js
+index 7be52e0..cca92af 100644
+--- a/node_modules/react-native-fetch-blob/polyfill/Fetch.js
++++ b/node_modules/react-native-fetch-blob/polyfill/Fetch.js
+@@ -1,4 +1,4 @@
+-import RNFetchBlob from '../index.js'
++// import RNFetchBlob from '../index.js'
+ import Log from '../utils/log.js'
+ import fs from '../fs'
+ import unicode from '../utils/unicode'
+diff --git a/node_modules/react-native-fetch-blob/polyfill/FileReader.js b/node_modules/react-native-fetch-blob/polyfill/FileReader.js
+index b72df17..ef0ebfc 100644
+--- a/node_modules/react-native-fetch-blob/polyfill/FileReader.js
++++ b/node_modules/react-native-fetch-blob/polyfill/FileReader.js
+@@ -2,7 +2,6 @@
+ // Use of this source code is governed by a MIT-style license that can be
+ // found in the LICENSE file.
+ 
+-import RNFetchBlob from '../index.js'
+ import ProgressEvent from './ProgressEvent.js'
+ import EventTarget from './EventTarget'
+ import Blob from './Blob'
+diff --git a/node_modules/react-native-fetch-blob/polyfill/XMLHttpRequest.js b/node_modules/react-native-fetch-blob/polyfill/XMLHttpRequest.js
+index 42c9877..c7c8e11 100644
+--- a/node_modules/react-native-fetch-blob/polyfill/XMLHttpRequest.js
++++ b/node_modules/react-native-fetch-blob/polyfill/XMLHttpRequest.js
+@@ -2,7 +2,7 @@
+ // Use of this source code is governed by a MIT-style license that can be
+ // found in the LICENSE file.
+ 
+-import RNFetchBlob from '../index.js'
++// import RNFetchBlob from '../index.js'
+ import XMLHttpRequestEventTarget from './XMLHttpRequestEventTarget.js'
+ import Log from '../utils/log.js'
+ import Blob from './Blob.js'

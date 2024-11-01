@@ -1,0 +1,45 @@
+const styles = {
+    containerCreateButton: {
+        bottom: '-6px',
+    },
+    createButton: {
+        width: '44px',
+        height: '44px',
+        borderRadius: 50,
+        alignItems: 'center',
+        justifyContent: 'center',
+        zIndex: 1,
+        elevation: 1,
+    },
+    createButtonBorderWrapper: {
+        width: '80px',
+        height: '40px',
+        backgroundColor: 'red',
+        overflow: 'hidden',
+        position: 'relative',
+        alignItems: 'center',
+        justifyContent: 'center',
+        zIndex: -1,
+        elevation: -1,
+        bottom: '-19px',
+    },
+    border: {
+        width: '72px',
+        height: '72px',
+        backgroundColor: 'rgba(233, 236, 237, 1)',
+        borderRadius: '35px',
+        zIndex: -1,
+        elevation: -1,
+        bottom: '18px',
+    },
+    icon: {
+        w: '48px',
+        h: '48px',
+        borderRadius: '24px',
+        bg: 'primary.200',
+        justifyContent: 'center',
+        alignItems: 'center',
+        mb: '12px',
+    },
+};
+export default styles;
